@@ -79,11 +79,48 @@ namespace FractionExercise
             return new Fraction(numer, denom);
         }
 
+
+
         public Fraction Divide(Fraction b)
         {
             var a = this;
 
             return a.Multiply(b.Invert());
+        }
+
+        public static Fraction operator -(Fraction left)
+        {
+            return new Fraction(- left.Numerator, left.Denominator);
+        }
+
+        public static Fraction operator -(Fraction left, Fraction right)
+        {
+            return left.Subtract( right);
+        }
+
+        public static Fraction operator +(Fraction left, Fraction right)
+        {
+            return left.Add( right);
+        }
+
+        public static Fraction operator *(Fraction left, Fraction right)
+        {
+            return left.Multiply( right);
+        }
+
+        public static Fraction operator /(Fraction left, Fraction right)
+        {
+            return left.Divide(right);
+        }
+
+        public static bool operator ==(Fraction left, Fraction right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Fraction left, Fraction right)
+        {
+            return !left.Equals(right);
         }
     }
 }
